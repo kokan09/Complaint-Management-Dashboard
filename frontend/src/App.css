@@ -1,0 +1,263 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  background: #f5f7fa;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.navbar {
+  background: #1e293b;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar h1 {
+  font-size: 1.5rem;
+}
+
+.nav-links button {
+  background: transparent;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.nav-links button:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.nav-links button.active {
+  background: #3b82f6;
+}
+
+.main-content {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.stat-card h3 {
+  color: #64748b;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.stat-card .value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.complaint-list {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.complaint-item {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.complaint-item:hover {
+  background: #f8fafc;
+}
+
+.complaint-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.complaint-id {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge.open { background: #dbeafe; color: #1e40af; }
+.badge.in_progress { background: #fef3c7; color: #92400e; }
+.badge.resolved { background: #d1fae5; color: #065f46; }
+.badge.escalated { background: #fee2e2; color: #991b1b; }
+
+.badge.critical { background: #fee2e2; color: #991b1b; }
+.badge.high { background: #fed7aa; color: #9a3412; }
+.badge.medium { background: #fef3c7; color: #92400e; }
+.badge.low { background: #dbeafe; color: #1e40af; }
+
+.complaint-text {
+  color: #475569;
+  margin-bottom: 0.5rem;
+}
+
+.complaint-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.detail-container {
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.detail-section {
+  margin-bottom: 2rem;
+}
+
+.detail-section h3 {
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.info-item {
+  padding: 0.75rem;
+  background: #f8fafc;
+  border-radius: 4px;
+}
+
+.info-label {
+  font-size: 0.75rem;
+  color: #64748b;
+  margin-bottom: 0.25rem;
+}
+
+.info-value {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.ai-response {
+  background: #eff6ff;
+  border-left: 4px solid #3b82f6;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
+.communication-list {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.message {
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+}
+
+.message.customer {
+  background: #f1f5f9;
+  margin-right: 2rem;
+}
+
+.message.agent {
+  background: #dbeafe;
+  margin-left: 2rem;
+}
+
+.message-sender {
+  font-weight: 600;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.message-time {
+  font-size: 0.75rem;
+  color: #64748b;
+  margin-bottom: 0.5rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+button.primary {
+  background: #3b82f6;
+  color: white;
+}
+
+button.primary:hover {
+  background: #2563eb;
+}
+
+button.secondary {
+  background: #e2e8f0;
+  color: #1e293b;
+}
+
+button.secondary:hover {
+  background: #cbd5e1;
+}
+
+.chart-container {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  margin-bottom: 1.5rem;
+}
