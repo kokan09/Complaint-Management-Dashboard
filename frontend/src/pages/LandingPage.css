@@ -1,0 +1,158 @@
+@keyframes improveVisibility{
+  from{
+    --RadiusIncrese : 200px;
+  }to{
+    --RadiusIncrese : 150vmax;
+  }
+}
+
+@property --RadiusIncrese{
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 200px;
+}
+
+html{
+  overflow: hidden;
+}
+
+.landing-page {
+  min-height: 100vh;
+  background-image: url("../Photos/LandingPAge\ \(2\).png");
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+
+.inner{
+  background: radial-gradient(var(--RadiusIncrese) at var(--x) var(--y), 
+  transparent,rgba(0, 0, 0, 0.5),
+   black);
+  width: 100vw;
+  height: 120vh;
+  position: absolute;
+  top: 0;
+  transition: all 1s linear;
+}
+
+.innerdisable{
+  background: radial-gradient(var(--RadiusIncrese) at var(--x) var(--y), 
+  transparent,rgba(0, 0, 0, 0.5),
+   black);
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 120vh;
+
+  animation: improveVisibility 1.5s ease forwards;
+  pointer-events: none;
+  transition: all 1s linear;
+}
+
+.landing-hero {
+  padding: 6rem 2rem;
+  color: white;
+  width: 50%;
+}
+
+.landing-hero span{
+  color: purple;
+}
+
+.InOne{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.landing-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.landing-hero p {
+  display: inline-block;
+  background: linear-gradient(to right, whitesmoke, rgb(255, 0, 255));
+  background-clip: text;
+  color: transparent;
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.landing-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.btn-primary {
+  background: white;
+  color: #667eea;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: white;
+  padding: 0.75rem 2rem;
+  border: 2px solid white;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  background: white;
+  color: #667eea;
+}
+
+.landing-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  background: whitesmoke;
+  padding: 2rem;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0);
+  transition: transform 0.2s;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #1e293b;
+}
+
+.feature-card p {
+  color: #64748b;
+}

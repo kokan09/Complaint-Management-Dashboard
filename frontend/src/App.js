@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import LandingPage from './components/LandingPage';
+import LandingPage from './pages/LandingPage';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
-import Dashboard from './components/Dashboard';
+import Dashboard from './pages/Dashboard';
 import ComplaintList from './components/ComplaintList';
 import ComplaintDetail from './components/ComplaintDetail';
 import Analytics from './components/Analytics';
+import { Routes, Route } from "react-router";
 import './App.css';
+import NavBar from './components/NavBar';
 
 const API_URL = 'http://localhost:3001/api';
 
@@ -74,6 +76,9 @@ function App() {
       <nav className="navbar">
         <h1>Complaint Management Dashboard</h1>
         <div className="nav-links">
+          <NavBar />
+
+          {/* Now i have Routed this : 
           <button onClick={() => setView('dashboard')} className={view === 'dashboard' ? 'active' : ''}>
             Dashboard
           </button>
@@ -82,7 +87,8 @@ function App() {
           </button>
           <button onClick={() => setView('analytics')} className={view === 'analytics' ? 'active' : ''}>
             Analytics
-          </button>
+          </button> */}
+
           <button onClick={handleLogout} className="logout-btn">
             Logout
           </button>
@@ -90,30 +96,36 @@ function App() {
       </nav>
 
       <main className="main-content">
-        {view === 'dashboard' && (
-          <Dashboard 
-            complaints={complaints} 
-            analytics={analytics}
-            onComplaintClick={handleComplaintClick}
-          />
-        )}
-        {view === 'complaints' && (
-          <ComplaintList 
-            complaints={complaints}
-            onComplaintClick={handleComplaintClick}
-            onRefresh={fetchComplaints}
-          />
-        )}
-        {view === 'analytics' && (
-          <Analytics analytics={analytics} />
-        )}
-        {view === 'detail' && selectedComplaint && (
-          <ComplaintDetail 
-            complaint={selectedComplaint}
-            onBack={() => setView('complaints')}
-            onUpdate={fetchComplaints}
-          />
-        )}
+        <Routes>
+          <Route path='/dashboard' element ={
+            <Dashboard 
+              complaints={complaints} 
+              analytics={analytics}
+              onComplaintClick={handleComplaintClick}
+            />
+          }/>
+
+          <Route path='/complaints' element ={
+            <ComplaintList 
+              complaints={complaints}
+              onComplaintClick={handleComplaintClick}
+              onRefresh={fetchComplaints}
+            />
+          }/>
+
+          <Route path='/analytics' element ={
+            <Analytics analytics={analytics} />
+          }/>
+
+          <Route path='/detail' element ={
+            <ComplaintDetail 
+              complaint={selectedComplaint}
+              onBack={() => setView('complaints')}
+              onUpdate={fetchComplaints}
+            />
+          } />
+          
+        </Routes>
       </main>
     </div>
   );
